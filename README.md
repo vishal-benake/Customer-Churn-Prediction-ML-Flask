@@ -1,4 +1,4 @@
-# 📊 Telco Customer Churn Prediction using ML and Flask
+# 📊 Customer Churn Prediction using ML and Flask
 
 This project is a full-stack machine learning application that predicts customer churn for a Telco company. It features a trained Logistic Regression model, preprocessing pipelines, a user-friendly Flask web interface, and visual performance reports.
 
@@ -81,7 +81,7 @@ customer_churn_project/
 1. **Clone the repository**  
    ```bash
    git clone https://github.com/vishal-benake/Customer-Churn-Prediction-ML-Flask.git
-   cd customer_churn_project
+   cd Customer-Churn-Prediction-ML-Flask
    ```
 
 2. **Create virtual environment (optional but recommended)**  
