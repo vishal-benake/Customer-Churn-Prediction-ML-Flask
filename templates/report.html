@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Churn Prediction Report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 2rem;
+        }
+        .card {
+            margin-bottom: 2rem;
+        }
+        canvas {
+            max-width: 100%;
+        }
+        table th, table td {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="mb-4 text-center">Customer Churn Detailed Report</h2>
+
+        <!-- Prediction Summary -->
+        <div class="alert alert-info text-center">
+            <strong>Prediction:</strong> {{ prediction_text }}<br>
+            <strong>Confidence:</strong> {{ user_input.get('confidence', 'N/A') }}
+        </div>
+
+        <!-- User Input Summary Table -->
+        <div class="card shadow p-3">
+            <h5 class="card-title mb-3">Customer Input Summary</h5>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Feature</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, value in user_input.items() %}
+                            <tr>
+                                <td>{{ key }}</td>
+                                <td>{{ value }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="row">
+            <!-- Numerical Features -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow p-3">
+                    <h5 class="card-title">Numerical Features</h5>
+                    <canvas id="numericalChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Binary Features -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow p-3">
+                    <h5 class="card-title">Binary Features</h5>
+                    <canvas id="binaryChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Categorical Features -->
+            <div class="col-lg-4 col-md-12">
+                <div class="card shadow p-3">
+                    <h5 class="card-title">Categorical Features</h5>
+                    <canvas id="categoricalChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const userInput = {{ user_input | tojson | safe }};
+
+        const numericalData = {
+            labels: ["Tenure", "MonthlyCharges", "TotalCharges"],
+            datasets: [{
+                label: 'Values',
+                data: [
+                    parseFloat(userInput.tenure || 0),
+                    parseFloat(userInput.MonthlyCharges || 0),
+                    parseFloat(userInput.TotalCharges || 0)
+                ],
+                backgroundColor: ['#4bc0c0', '#36a2eb', '#ffce56']
+            }]
+        };
+
+        const binaryData = {
+            labels: ["SeniorCitizen", "Partner", "Dependents", "PhoneService", "PaperlessBilling"],
+            datasets: [{
+                label: 'Binary Values',
+                data: [
+                    userInput.SeniorCitizen === "1" ? 1 : 0,
+                    userInput.Partner === "Yes" ? 1 : 0,
+                    userInput.Dependents === "Yes" ? 1 : 0,
+                    userInput.PhoneService === "Yes" ? 1 : 0,
+                    userInput.PaperlessBilling === "Yes" ? 1 : 0
+                ],
+                backgroundColor: ['#ff6384', '#ff9f40', '#9966ff', '#00bfff', '#8bc34a']
+            }]
+        };
+
+        const categoricalData = {
+            labels: [
+                userInput.gender,
+                userInput.MultipleLines,
+                userInput.InternetService,
+                userInput.OnlineSecurity,
+                userInput.OnlineBackup,
+                userInput.DeviceProtection,
+                userInput.TechSupport,
+                userInput.StreamingTV,
+                userInput.StreamingMovies,
+                userInput.Contract,
+                userInput.PaymentMethod
+            ],
+            datasets: [{
+                label: 'Categories',
+                data: Array(11).fill(1),
+                backgroundColor: [
+                    '#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4',
+                    '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080'
+                ]
+            }]
+        };
+
+        new Chart(document.getElementById('numericalChart'), {
+            type: 'bar',
+            data: numericalData,
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('binaryChart'), {
+            type: 'bar',
+            data: binaryData,
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, max: 1, ticks: { stepSize: 1 } }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('categoricalChart'), {
+            type: 'bar',
+            data: categoricalData,
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                indexAxis: 'y',
+                scales: {
+                    x: { beginAtZero: true, max: 1 }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
