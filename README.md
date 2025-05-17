@@ -80,8 +80,8 @@ customer_churn_project/
 │   ├── demo2.png
 │   ├── demo3.png
 │   ├── demo4.png
-│   ├── demo5png
-│   └── confusion_matrix.png      # Model performance
+│   ├── demo5.png
+│   └── Figure_1.png      # Model performance - Confusion Matrix
 ```
 
 ---
