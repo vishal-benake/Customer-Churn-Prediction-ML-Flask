@@ -62,7 +62,8 @@ customer_churn_project/
 │   └── telco_churn.csv           # Dataset
 │
 ├── notebook/
-│   └── customer_churn.ipynb            # Data exploration and model building
+│   ├── customer_churn.ipynb       # Data exploration and model building
+│   └── customer_churn.pdf         # Data exploration and model building PDF
 │
 ├── templates/
 │   ├── index.html                # UI for input
