@@ -4,6 +4,11 @@ This project is a full-stack machine learning application that predicts customer
 
 ---
 
+© 2025 Vishal Benake. All rights reserved.  
+Unauthorized copying, distribution, or modification of this code is prohibited.
+
+---
+
 ## 🚀 Demo
 
 Here are some screenshots of the live application:
@@ -14,9 +19,13 @@ Here are some screenshots of the live application:
   <img src="img/demo1.png" alt="Demo 1" width="400"/>
   <img src="img/demo2.png" alt="Demo 2" width="400"/>
 </p>
+
+### 🖼️ UI Demo Report Analysis
+
 <p align="center">
   <img src="img/demo3.png" alt="Demo 3" width="400"/>
   <img src="img/demo4.png" alt="Demo 4" width="400"/>
+  <img src="img/demo5.png" alt="Demo 5" width="800" height="500"/>
 </p>
 
 ### ✅ Model Evaluation
@@ -71,7 +80,8 @@ customer_churn_project/
 │   ├── demo2.png
 │   ├── demo3.png
 │   ├── demo4.png
-│   └── confusion_matrix.png      # Model performance
+│   ├── demo5.png
+│   └── Figure_1.png      # Model performance - Confusion Matrix
 ```
 
 ---
@@ -137,3 +147,8 @@ pip install -r requirements.txt
 ## <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" width="20" height="20"> Instagram
 <h4>If you like, do follow me on Instagram</h4>
 <a href="https://www.instagram.com/vishaal_87">Connect with me on Instagram</a>
+
+---
+
+© 2025 Vishal Benake. All rights reserved.  
+Unauthorized copying, distribution, or modification of this code is prohibited.
