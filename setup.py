@@ -20,7 +20,7 @@ setup(
 name='Customer-Churn-Prediction-ML-Flask',
 version='0.0.1',
 author='Vishal',
-author_email='vishalbenake8@gmail.com',
+author_email='benakevishal2017@gmail.com',
 # packages=find_packages(),
 packages=find_packages(where="src"),
 package_dir={"": "src"},
