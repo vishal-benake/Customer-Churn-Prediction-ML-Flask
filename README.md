@@ -53,10 +53,10 @@ Here are some screenshots of the live application:
 ```
 customer_churn_project/
 │
-├── app.py                        # Flask application
-├── pipeline.py                   # Model training and pipeline
-├── model.pkl                     # Trained pipeline model
+├── setup.py                       
 ├── requirements.txt              # Python dependencies
+├── .gitignore
+├── README.md
 │
 ├── data/
 │   └── telco_churn.csv           # Dataset
@@ -83,7 +83,7 @@ customer_churn_project/
 │   │   └── utils.py
 │   │
 │   ├── __init__.py
-│   ├── app.py
+│   ├── app.py                  # Flask application
 │   ├── config.py
 │   ├── exception.py
 │   ├── logger.py
