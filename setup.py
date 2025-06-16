@@ -21,7 +21,6 @@ name='Customer-Churn-Prediction-ML-Flask',
 version='0.0.1',
 author='Vishal',
 author_email='benakevishal2017@gmail.com',
-# packages=find_packages(),
 packages=find_packages(where="src"),
 package_dir={"": "src"},
 install_requires=get_requirements('requirements.txt')
