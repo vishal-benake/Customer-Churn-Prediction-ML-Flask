@@ -69,12 +69,25 @@ customer_churn_project/
 │   ├── index.html                # UI for input
 │   └── report.html               # Detailed prediction report
 │
-├── modules/
-│   ├── data_preprocessing.py
-│   ├── feature_engineering.py
-│   ├── model_evaluation.py
-│   ├── model_training.py
-│   └── model_utils.py            # Preprocessing utilities
+├── src/
+│   ├── components/
+│   │   ├── __init__.py
+│   │   ├── data_preprocessing.py
+│   │   └── feature_engineering.py
+│   │
+│   ├── pipelines/
+│   │   ├── __init__.py
+│   │   ├── model_evaluation.py
+│   │   ├── model_training.py
+│   │   ├── pipeline.py
+│   │   └── utils.py
+│   │
+│   ├── __init__.py
+│   ├── app.py
+│   ├── config.py
+│   ├── exception.py
+│   ├── logger.py
+│   └── model.pkl          
 │
 ├── img/
 │   ├── demo1.png
@@ -106,12 +119,15 @@ customer_churn_project/
    pip install -r requirements.txt
    ```
 
-4. **Run the Flask app**  
+4. **Run the Pipeline**  
+   ```bash
+   python pipeline.py
+   ```
+5. **Run the Flask app**  
    ```bash
    python app.py
    ```
-
-5. Open your browser and navigate to `http://127.0.0.1:5000`
+6. Open your browser and navigate to `http://127.0.0.1:5000`
 
 ---
 
@@ -130,6 +146,7 @@ customer_churn_project/
 - Python ≥ 3.7  
 - Flask  
 - scikit-learn  
+- imbalanced-learn
 - pandas  
 - joblib  
 - chart.js (for frontend charts)

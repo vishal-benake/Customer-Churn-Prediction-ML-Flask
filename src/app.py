@@ -1,12 +1,21 @@
 from flask import Flask, render_template, request
-import pandas as pd
 import joblib
-from modules.model_utils import preprocess_input  # your utility to preprocess single input
+from pipeline.utils import preprocess_input  # your utility to preprocess single input
+from logger import setup_logging
+from config import MODEL_PATH
+from pathlib import Path
+
 
 app = Flask(__name__)
-model = joblib.load('model.pkl')  # your trained pipeline model
+model = joblib.load(MODEL_PATH)  # your trained pipeline model
 df_columns = model.named_steps['scaler'].feature_names_in_ if hasattr(model.named_steps['scaler'], 'feature_names_in_') else None
 # Or save your df_columns at model training time and load here for input alignment
+
+
+# Set the correct templates folder path (relative to this file)
+TEMPLATE_DIR = Path(__file__).resolve().parent.parent / "templates"
+app = Flask(__name__, template_folder=str(TEMPLATE_DIR))
+
 
 @app.route('/')
 def home():
@@ -61,3 +70,4 @@ def report():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    setup_logging(prefix="app")

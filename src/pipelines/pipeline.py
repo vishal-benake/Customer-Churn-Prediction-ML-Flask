@@ -1,10 +1,13 @@
-from modules.data_processing import load_data, clean_data
-from modules.feature_engineering import encode_features
-from modules.model_training import train_model, save_model
-from modules.model_evaluation import evaluate_model
+from components.data_processing import load_data, clean_data
+from components.feature_engineering import encode_features
+from pipelines.model_training import train_model, save_model
+from pipelines.model_evaluation import evaluate_model
+from config import MODEL_PATH
+from logger import setup_logging
 
 DATA_PATH = 'data/telco_churn.csv'
-MODEL_PATH = 'model.pkl'
+# MODEL_PATH = 'model.pkl'
+
 
 def run_pipeline():
     print("Loading data...")
@@ -29,3 +32,4 @@ def run_pipeline():
 
 if __name__ == "__main__":
     run_pipeline()
+    setup_logging(prefix="pipeline")
