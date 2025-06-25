@@ -1,6 +1,7 @@
+
 # 📊 Customer Churn Prediction using ML and Flask
 
-This project is a full-stack machine learning application that predicts customer churn for a Telco company. It features a trained Logistic Regression model, preprocessing pipelines, a user-friendly Flask web interface, and visual performance reports.
+This project demonstrates a complete end-to-end machine learning pipeline built with an industry-standard architecture. It follows a modular approach where the data ingestion, preprocessing, training, and deployment workflows are well-structured and reusable. The application predicts customer churn for a telecom company using a trained logistic regression model. The frontend is powered by a user-friendly Flask web interface, and the backend ensures dynamic, insightful visual reports for decision-making.
 
 ---
 
@@ -11,96 +12,25 @@ Unauthorized copying, distribution, or modification of this code is prohibited.
 
 ## 🚀 Demo
 
-Here are some screenshots of the live application:
-
-### 🖼️ UI Demo
+### 🖼️ UI Screenshots
 
 <p align="center">
-  <img src="img/demo1.png" alt="Demo 1" width="400"/>
-  <img src="img/demo2.png" alt="Demo 2" width="400"/>
+  <img src="img/demo1.jpg" alt="Demo 1" width="400"/>
+  <img src="img/demo2.jpg" alt="Demo 2" width="400"/>
+  <img src="img/demo3.jpg" alt="Demo 3" width="400"/>
 </p>
 
-### 🖼️ UI Demo Report Analysis
+### 📈 Output & Report Screens
 
 <p align="center">
-  <img src="img/demo3.png" alt="Demo 3" width="400"/>
-  <img src="img/demo4.png" alt="Demo 4" width="400"/>
-  <img src="img/demo5.png" alt="Demo 5" width="800" height="500"/>
-</p>
-
-### ✅ Model Evaluation
-
-<p align="center">
-  <img src="img/Figure_1.png" alt="Confusion Matrix" width="500"/>
+  <img src="img/demo4.jpg" alt="Report 1" width="400"/>
+  <img src="img/demo5.jpg" alt="Report 2" width="400"/>
+  <img src="img/demo6.jpg" alt="Report 3" width="400"/>
 </p>
 
 ---
 
-## 🧠 Machine Learning Overview
-
-- **Model Used**: Logistic Regression  
-- **Preprocessing**: Done using Scikit-learn Pipelines  
-- **Feature Handling**:
-  - Binary Encoding
-  - One-Hot Encoding
-  - Scaling with `StandardScaler`
-- **Evaluation Metrics**: Accuracy, Precision, Recall, F1-Score, Confusion Matrix
-
----
-
-## 🗂️ Project Structure
-
-```
-customer_churn_project/
-│
-├── setup.py                       
-├── requirements.txt              # Python dependencies
-├── .gitignore
-├── README.md
-│
-├── data/
-│   └── telco_churn.csv           # Dataset
-│
-├── notebook/
-│   ├── customer_churn.ipynb       # Data exploration and model building
-│   └── customer_churn.pdf         # Data exploration and model building PDF
-│
-├── templates/
-│   ├── index.html                # UI for input
-│   └── report.html               # Detailed prediction report
-│
-├── src/
-│   ├── components/
-│   │   ├── __init__.py
-│   │   ├── data_preprocessing.py
-│   │   └── feature_engineering.py
-│   │
-│   ├── pipelines/
-│   │   ├── __init__.py
-│   │   ├── model_evaluation.py
-│   │   ├── model_training.py
-│   │   ├── pipeline.py
-│   │   └── utils.py
-│   │
-│   ├── __init__.py
-│   ├── app.py                  # Flask application
-│   ├── config.py
-│   ├── exception.py
-│   ├── logger.py
-│   └── model.pkl          
-│
-├── img/
-│   ├── demo1.png
-│   ├── demo2.png
-│   ├── demo3.png
-│   ├── demo4.png
-│   ├── demo5.png
-│   └── Figure_1.png      # Model performance - Confusion Matrix
-```
-
----
-
-## 🛠️ Setup Instructions
+## 🛠️ How to Run the Project
 
 1. **Clone the repository**  
    ```bash
@@ -108,36 +38,42 @@ customer_churn_project/
    cd Customer-Churn-Prediction-ML-Flask
    ```
 
-2. **Create virtual environment (optional but recommended)**  
+2. **Create a virtual environment**  
    ```bash
    python -m venv venv
-   source venv/bin/activate    # On Windows: venv\Scripts\activate
+   # On Windows:
+   venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
    ```
 
-3. **Install dependencies**  
+3. **Install required dependencies**  
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Run the Pipeline**  
+4. **Run data ingestion script**  
    ```bash
-   python pipeline.py
+   python data_ingestion.py
    ```
-5. **Run the Flask app**  
+
+5. **Run the Flask application**  
    ```bash
-   python app.py
+   python application.py
    ```
-6. Open your browser and navigate to `http://127.0.0.1:5000`
+
+6. **Open your browser**  
+   Go to `http://127.0.0.1:5000`
 
 ---
 
 ## 📈 Prediction Output
 
-- The app shows whether a customer will churn or not.
-- A detailed report page displays:
-  - Input breakdown
-  - Bar charts for numerical & binary features
-  - Confidence score (churn probability)
+- The app predicts whether a customer will **churn or not**.
+- The report page provides:
+  - User input summary
+  - Bar charts for numerical, binary & categorical features
+  - Doughnut chart for churn probability
 
 ---
 
@@ -146,25 +82,25 @@ customer_churn_project/
 - Python ≥ 3.7  
 - Flask  
 - scikit-learn  
-- imbalanced-learn
+- imbalanced-learn  
 - pandas  
 - joblib  
-- chart.js (for frontend charts)
+- chart.js (included via CDN)
 
-Install via:
+Install everything with:
 ```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="20" height="20"> Youtube
-<h4>If you like, do follow me on Youtube</h4>
-<a href="https://www.youtube.com/@Code-With-Vishal">Connect with me on  Youtube</a>
+## 🔗 Connect with Me
 
-## <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" width="20" height="20"> Instagram
-<h4>If you like, do follow me on Instagram</h4>
-<a href="https://www.instagram.com/vishaal_87">Connect with me on Instagram</a>
+### <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width="20" height="20"> YouTube  
+<a href="https://www.youtube.com/@Code-With-Vishal">Follow me on YouTube – Code With Vishal</a>
+
+### <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" width="20" height="20"> Instagram  
+<a href="https://www.instagram.com/vishaal_87">Follow me on Instagram – @vishaal_87</a>
 
 ---
 

@@ -193,8 +193,5 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-myenv/
-logs/
-Customer_Churn_Prediction_ML_Flask.egg-info/
-build/
-dist/
+myenv
+logs

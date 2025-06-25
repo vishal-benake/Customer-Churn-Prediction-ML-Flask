@@ -2,19 +2,21 @@ import logging
 import os
 from datetime import datetime
 
-def setup_logging(prefix="app"):
-    log_file = f"{prefix}_{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
-    logs_dir = os.path.join(os.getcwd(), "logs")
-    os.makedirs(logs_dir, exist_ok=True)
-    log_path = os.path.join(logs_dir, log_file)
+LOG_FILE=f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
+logs_path=os.path.join(os.getcwd(),"logs",LOG_FILE)
+os.makedirs(logs_path,exist_ok=True)
 
-    file_handler = logging.FileHandler(log_path)
-    formatter = logging.Formatter("[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s")
-    file_handler.setFormatter(formatter)
+LOG_FILE_PATH=os.path.join(logs_path,LOG_FILE)
 
-    logging.basicConfig(
-        level=logging.INFO,
-        handlers=[file_handler]
-    )
+logging.basicConfig(
+    filename=LOG_FILE_PATH,
+    format="[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s",
+    level=logging.INFO,
 
-    logging.info(f"Logging started: {log_path}")
+
+)
+
+
+# to check 
+# if __name__=="__main__":
+   # logging.info("Logging has started")
