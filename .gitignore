@@ -195,3 +195,12 @@ cython_debug/
 
 myenv
 logs
+
+# Ignore all CSV files in notebook/data
+notebook/data/*.csv
+
+# Ignore all CSV files in artifacts (like train/test/data.csv)
+artifacts/*.csv
+
+*.pkl
+*.joblib
